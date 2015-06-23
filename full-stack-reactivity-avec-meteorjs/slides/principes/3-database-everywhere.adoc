@@ -1,0 +1,11 @@
+=== 3. Database Everywhere
+
+* MongoDB côté serveur
+* MiniMongo côté client
+* Une API partagée par le client et le serveur
+* Synchronisation entre les deux
+
+[NOTE.speaker]
+--
+
+--

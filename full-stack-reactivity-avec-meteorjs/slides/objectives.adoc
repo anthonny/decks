@@ -1,0 +1,10 @@
+== Objectifs
+
+* Vous présenter MeteorJS
+* Développer une appli
+* Avoir du feedback
+
+[NOTE.speaker]
+--
+
+--

@@ -1,0 +1,42 @@
+- Presentation 1
+- Audit audience 2
+  + Backend
+  + FrontEnd
+  + Les deux
+
+- Archiweb
+- Qu'est ce que Meteor js ?
+  + full stack javascript
+  + meme api front et back
+- A quoi peut on comparer Meteor ?
+  + pas angular
+- MeteorJS sous le capot
+  + node
+  + mongo
+- How is-it different ?
+  + Request vs subscription
+
+- Datbase everywhere
+  + Mongo on the sever
+  + MiniMongo on client
+
+- Reactivity
+  + CLient change
+  + Thne sent to server
+  + problem resolu sur le serveur et roolback ensuite
+
+- Latency compensation
+
+- Framework and package manager
+
+- Presentation de la structure
+
+- Development is fast
+  + Lot of stuff
+  + No context switching
+
+- Authentificatino
+
+- Router
+
+- Test avec Velocity

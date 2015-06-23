@@ -1,0 +1,24 @@
+== Qui je suis
+
+image::assets/avatar.jpeg[]
+
+**Anthonny Quérouil**
+
+=== Le jour
+Je suis développeur https://www.hopwork.com/profile/anthonnyquerouil[indépendant] et j’interviens sur les problématiques back-end et front-end en utilisant notamment Java et Javascript.
+
+=== Le soir
+Je contribue à plusieurs projets open-source autour de l’outil http://asciidoctor.org[Asciidoctor], et je développe http://hubpress.io[HubPress], un outil de blogging basé sur https://pages.github.com/[GitHub Pages].
+
+image::assets/asciidoctor.png[role=left]
+image::assets/hubpress.png[role=right]
+
+=== Et en ce moment
+
+Je change aussi des couches
+
+
+[NOTE.speaker]
+--
+
+--

@@ -1,0 +1,29 @@
+== Methods
+
+* Coté serveur
+
+[source, javascript]
+----
+Meteor.method({
+  "myMethod": function() {
+    console.log('test');
+  }
+});
+----
+
+* Coté client
+
+[source, javascript]
+----
+// on the client
+Meteor.call("myMethod", function (error) {
+  if (error)
+    throw new Meteor.Error("myMethod error")
+
+});
+----
+
+[NOTE.speaker]
+--
+
+--

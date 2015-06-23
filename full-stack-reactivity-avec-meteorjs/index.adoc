@@ -1,0 +1,25 @@
+= Full Stack Reactivity avec Meteor.js
+Anthonny Quérouil | @anthonny_q
+:backend: revealjs
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0
+:source-highlighter: highlightjs
+:revealjs_controls: false
+:revealjs_transition: concave
+:app-name: nantesjug
+
+include::slides/objectives.adoc[]
+include::slides/about-you.adoc[]
+include::slides/about-me.adoc[]
+include::slides/web-development.adoc[]
+include::slides/what-is-meteor.adoc[]
+include::slides/a-quoi-peut-on-comparer.adoc[]
+include::slides/un-environnement.adoc[]
+include::slides/7-principes.adoc[]
+include::slides/quickstart.adoc[]
+include::slides/demo.adoc[]
+include::slides/methods.adoc[]
+include::slides/securisation.adoc[]
+include::slides/testing.adoc[]
+include::slides/deploy.adoc[]
+include::slides/links.adoc[]
+include::slides/merci.adoc[]

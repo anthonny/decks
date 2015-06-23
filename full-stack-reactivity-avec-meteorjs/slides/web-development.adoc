@@ -1,0 +1,14 @@
+== "Mon" développement web
+
+[NOTE.speaker]
+--
+Géneration des pages côtes serveur
+
+Puis avenement Ajax et son accessibilite via jQuery
+
+Les frameworks SPA Angular, Backbone, Ember
+
+Les frameworks composants Polymer, React
+
+Le SSE et les WebSockets
+--

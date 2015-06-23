@@ -1,0 +1,10 @@
+=== 6. Embrace the Ecosystem
+
+* Meteor est opensource (MIT)
+* https://atmospherejs.com/[Atmosphere] propose près de 6000 packages
+* Vous pouvez facilement wrapper vos modules NodeJS
+
+[NOTE.speaker]
+--
+
+--

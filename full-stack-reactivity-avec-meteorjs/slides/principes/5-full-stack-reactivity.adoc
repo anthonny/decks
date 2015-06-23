@@ -1,0 +1,10 @@
+=== 5. Full Stack Reactivity
+
+* Meteor est basé sur la réactivité,
+* Les templates, les collections, les sessions .. tout est updaté au besoin
+* Le client est mis à jour systématiquement pour chaque changements côté serveur
+
+[NOTE.speaker]
+--
+
+--

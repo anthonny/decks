@@ -1,0 +1,10 @@
+=== 7. Simplicity Equals Productivity
+
+* Installation simple,
+* Pas de changements de contexte,
+* Développement efficace, des outils et des modules pour tout les besoins
+
+[NOTE.speaker]
+--
+
+--

@@ -1,0 +1,10 @@
+=== 2. One Language
+
+* JavaScript pour travailler coté serveur et client
+* Partage de code entre le client et le serveur
+* Possibilité d'utiliser d'autres langages, notamment CoffeeScript
+
+[NOTE.speaker]
+--
+
+--

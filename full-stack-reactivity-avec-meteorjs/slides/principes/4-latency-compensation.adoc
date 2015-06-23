@@ -1,0 +1,10 @@
+=== 4. Latency Compensation
+
+* Les données sont préfetchées coté client,
+* Une sensation d'hyper réactivité
+* Rollback côté client en cas d'erreurs survenues sur le serveur
+
+[NOTE.speaker]
+--
+
+--

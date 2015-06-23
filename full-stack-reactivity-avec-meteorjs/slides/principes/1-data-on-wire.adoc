@@ -1,0 +1,12 @@
+=== 1. Data on the Wire
+
+* Plus d'échange de fichier HTML après le premier appel
+* Utilisation du protocol https://github.com/meteor/meteor/blob/devel/packages/ddp/DDP.md[DDP]
+** Echange de EJSON sur WebSocket
+** Le serveur informe le client des changements
+** Remote Procedure Calls (RPC) fait par le client au serveur
+
+[NOTE.speaker]
+--
+
+--
