@@ -1,9 +1,0 @@
-== Les 7 principes
-
-include::principes/1-data-on-wire.adoc[]
-include::principes/2-one-language.adoc[]
-include::principes/3-database-everywhere.adoc[]
-include::principes/4-latency-compensation.adoc[]
-include::principes/5-full-stack-reactivity.adoc[]
-include::principes/6-embrace-the-ecosystem.adoc[]
-include::principes/7-simplicity-equals-productivity.adoc[]

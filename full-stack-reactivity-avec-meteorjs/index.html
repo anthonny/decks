@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Anthonny Quérouil | @anthonny_q"><title>Full Stack Reactivity avec Meteor.js</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/theme/league.css" id="theme"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/css/zenburn.css" rel="stylesheet"><script type="text/javascript">document.write( '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section><h2>Full Stack Reactivity avec Meteor.js</h2><p><small>Anthonny Quérouil | @anthonny_q</small></p></section><section id="_objectifs"><h2>Objectifs</h2><div class="ulist"><ul><li><p>Vous présenter MeteorJS</p></li><li><p>Développer une appli</p></li><li><p>Avoir du feedback</p></li></ul></div>
+<aside class="notes"></aside></section>
+<section id="_qui_êtes_vous"><h2>Qui êtes-vous ?</h2><aside class="notes"><div class="paragraph"><p>Qui fait du backend ?</p></div>
+<div class="paragraph"><p>Qui fait de frontend ?</p></div>
+<div class="paragraph"><p>Qui fait les deux ?</p></div>
+<div class="paragraph"><p>Qui a testé / utilise Meteor ?</p></div></aside></section>
+<section><section id="_qui_je_suis"><h2>Qui je suis</h2><div class="imageblock" style=""><div class="content"><img src="assets/avatar.jpeg" alt="avatar"></div></div><div class="paragraph"><p><strong>Anthonny Quérouil</strong></p></div></section><section id="_le_jour"><h2>Le jour</h2><div class="paragraph"><p>Je suis développeur <a href="https://www.hopwork.com/profile/anthonnyquerouil">indépendant</a> et j’interviens sur les problématiques back-end et front-end en utilisant notamment Java et Javascript.</p></div></section><section id="_le_soir"><h2>Le soir</h2><div class="paragraph"><p>Je contribue à plusieurs projets open-source autour de l’outil <a href="http://asciidoctor.org">Asciidoctor</a>, et je développe <a href="http://hubpress.io">HubPress</a>, un outil de blogging basé sur <a href="https://pages.github.com/">GitHub Pages</a>.</p></div>
+<div class="imageblock left" style=""><div class="content"><img src="assets/asciidoctor.png" alt="asciidoctor"></div></div>
+<div class="imageblock right" style=""><div class="content"><img src="assets/hubpress.png" alt="hubpress"></div></div></section><section id="_et_en_ce_moment"><h2>Et en ce moment</h2><div class="paragraph"><p>Je change aussi des couches</p></div>
+<aside class="notes"></aside></section></section>
+<section id="__mon_développement_web"><h2>"Mon" développement web</h2><aside class="notes"><div class="paragraph"><p>Géneration des pages côtes serveur</p></div>
+<div class="paragraph"><p>Puis avenement Ajax et son accessibilite via jQuery</p></div>
+<div class="paragraph"><p>Les frameworks SPA Angular, Backbone, Ember</p></div>
+<div class="paragraph"><p>Les frameworks composants Polymer, React</p></div>
+<div class="paragraph"><p>Le SSE et les WebSockets</p></div></aside></section>
+<section id="_kesako_meteor"><h2>Kesako Meteor ?</h2><div class="quoteblock"><blockquote><div class="paragraph"><p>Meteor is an ultra-simple environment for building modern websites. What once took weeks, even with the best tools, now takes hours with Meteor.</p></div></blockquote><div class="attribution">&#8212; Meteor team</div></div></section>
+<section id="_et_angular_react_c_est_la_même"><h2>Et Angular, React, c&#8217;est la même ?</h2><div class="ulist step"><ul><li class="fragment"><p>Non, Angular et React sont des <strong>frameworks</strong> front-end only</p></li><li class="fragment"><p>MEAN ou Sails s&#8217;en rapprochent mais &#8230;&#8203;</p></li><li class="fragment"><p>&#8230;&#8203; Meteor est plus "all-in-one"</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>Mettre en avant qu&#8217;angular et react se base forcement sur une api a developper a cote</p></div>
+<div class="paragraph"><p>Mettre en avant le cote de dev simplifié des staks MEAN et Sails
+(orga project, stack montée, build ok, watch &#8230;&#8203;) mais reste de choses a installer et configurer</p></div>
+<div class="paragraph"><p>Meteor c&#8217;est All-In-One</p></div></aside></section>
+<section id="_on_parle_environnement"><h2>On parle Environnement</h2><div class="ulist step"><ul><li class="fragment"><p>Node v0.10.35</p></li><li class="fragment"><p>NPM v2.9.0</p></li><li class="fragment"><p>Mongo v2.6.7</p></li><li class="fragment"><p>Librairies JavaScript</p></li><li class="fragment"><p>Le TOUT packagé dans UN environnement : Meteor</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>~/.meteor/packages/meteor-tool/1.1.3/mt-os.osx.x86_64/dev_bundle/bin</p></div>
+<div class="paragraph"><p>Bien mettre en avant qu&#8217;on installe meteor et c&#8217;est tout</p></div>
+<div class="paragraph"><p>Pas besoin de NPM, de Node ou de Mongo</p></div>
+<div class="paragraph"><p>Pas de procedure de configuration de post de Dev</p></div></aside></section>
+<section><section id="_les_7_principes"><h2>Les 7 principes</h2></section><section id="_1_data_on_the_wire"><h2>1. Data on the Wire</h2><div class="ulist"><ul><li><p>Plus d&#8217;échange de fichier HTML après le premier appel</p></li><li><p>Utilisation du protocol <a href="https://github.com/meteor/meteor/blob/devel/packages/ddp/DDP.md">DDP</a></p><div class="ulist"><ul><li><p>Echange de EJSON sur WebSocket</p></li><li><p>Le serveur informe le client des changements</p></li><li><p>Remote Procedure Calls (RPC) fait par le client au serveur</p></li></ul></div></li></ul></div>
+<aside class="notes"></aside></section><section id="_2_one_language"><h2>2. One Language</h2><div class="ulist"><ul><li><p>JavaScript pour travailler coté serveur et client</p></li><li><p>Partage de code entre le client et le serveur</p></li><li><p>Possibilité d&#8217;utiliser d&#8217;autres langages, notamment CoffeeScript</p></li></ul></div>
+<aside class="notes"></aside></section><section id="_3_database_everywhere"><h2>3. Database Everywhere</h2><div class="ulist"><ul><li><p>MongoDB côté serveur</p></li><li><p>MiniMongo côté client</p></li><li><p>Une API partagée par le client et le serveur</p></li><li><p>Synchronisation entre les deux</p></li></ul></div>
+<aside class="notes"></aside></section><section id="_4_latency_compensation"><h2>4. Latency Compensation</h2><div class="ulist"><ul><li><p>Les données sont préfetchées coté client,</p></li><li><p>Une sensation d&#8217;hyper réactivité</p></li><li><p>Rollback côté client en cas d&#8217;erreurs survenues sur le serveur</p></li></ul></div>
+<aside class="notes"></aside></section><section id="_5_full_stack_reactivity"><h2>5. Full Stack Reactivity</h2><div class="ulist"><ul><li><p>Meteor est basé sur la réactivité,</p></li><li><p>Les templates, les collections, les sessions .. tout est updaté au besoin</p></li><li><p>Le client est mis à jour systématiquement pour chaque changements côté serveur</p></li></ul></div>
+<aside class="notes"></aside></section><section id="_6_embrace_the_ecosystem"><h2>6. Embrace the Ecosystem</h2><div class="ulist"><ul><li><p>Meteor est opensource (MIT)</p></li><li><p><a href="https://atmospherejs.com/">Atmosphere</a> propose près de 6000 packages</p></li><li><p>Vous pouvez facilement wrapper vos modules NodeJS</p></li></ul></div>
+<aside class="notes"></aside></section><section id="_7_simplicity_equals_productivity"><h2>7. Simplicity Equals Productivity</h2><div class="ulist"><ul><li><p>Installation simple,</p></li><li><p>Pas de changements de contexte,</p></li><li><p>Développement efficace, des outils et des modules pour tout les besoins</p></li></ul></div>
+<aside class="notes"></aside></section></section>
+<section><section id="_quickstart"><h2>Quickstart</h2></section><section id="_installer_meteor"><h2>Installer Meteor</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="shell language-shell">curl https://install.meteor.com | sh</code></pre></div></div></section><section id="_créer_votre_app"><h2>Créer votre app</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="shell language-shell">meteor create nantesjug</code></pre></div></div></section><section id="_démarrer_votre_app"><h2>Démarrer votre app</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="shell language-shell">cd nantesjug
+meteor</code></pre></div></div></section></section>
+<section id="_demo_time"><h2>Demo Time</h2><div class="imageblock" style=""><div class="content"><img src="assets/demo.png" alt="demo"></div></div>
+<aside class="notes"></aside></section>
+<section id="_methods"><h2>Methods</h2><div class="ulist"><ul><li><p>Coté serveur</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="javascript language-javascript">Meteor.method({
+  "myMethod": function() {
+    console.log('test');
+  }
+});</code></pre></div></div>
+<div class="ulist"><ul><li><p>Coté client</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="javascript language-javascript">// on the client
+Meteor.call("myMethod", function (error) {
+  if (error)
+    throw new Meteor.Error("myMethod error")
+
+});</code></pre></div></div>
+<aside class="notes"></aside></section>
+<section id="_sécurisation"><h2>Sécurisation</h2><div class="ulist"><ul><li><p>Enlever les paquets autopublish et insecure</p></li><li><p>En entrée des <strong>methods</strong>, <strong>checkez</strong> vos paramètres</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="javascript language-javascript">Meteor.methods({
+  myMethod: function (userId) {
+    check(userId, String);
+    ...
+  });</code></pre></div></div>
+<aside class="notes"></aside></section>
+<section id="_testing"><h2>Testing</h2><div class="ulist"><ul><li><p>Velocity</p></li><li><p>Tests unitaires avec Mocha, Jasmine&#8230;&#8203;</p></li><li><p>Tests fonctionnels notamment Cucumber</p></li><li><p>Divers reporters</p></li></ul></div>
+<div class="imageblock" style=""><div class="content"><img src="assets/velocity.png" alt="velocity"></div></div>
+<aside class="notes"></aside></section>
+<section id="_déploiement"><h2>Déploiement</h2><div class="ulist"><ul><li><p>Sur la plateforme Meteor pour du test</p></li><li><p>Sur vos serveurs avec la commande de bundle</p></li><li><p>Sur <a href="https://www.clever-cloud.com/fr/">CleverCloud</a></p></li></ul></div>
+<div class="imageblock" style=""><div class="content"><img src="assets/clever.png" alt="clever"></div></div>
+<aside class="notes"></aside></section>
+<section id="_quelques_liens"><h2>Quelques liens</h2><div class="ulist"><ul><li><p><a href="https://www.meteor.com/">Meteor</a> et sa <a href="http://docs.meteor.com/#/full/quickstart">documentation</a></p></li><li><p><a href="http://velocity.meteor.com/">Velocity</a></p></li><li><p><a href="https://www.clever-cloud.com/blog/engineering/2015/04/22/meteor-js-on-clever-cloud/">Meteor on Clever Cloud</a></p></li></ul></div>
+<aside class="notes"></aside></section>
+<section id="_merci"><h2>Merci</h2><div class="ulist"><ul><li><p><a href="https://github.com/anthonny">GitHub: anthonny</a></p></li><li><p><a href="https://twitter.com/anthonny_q">Twitter: @anthonny_q</a></p></li></ul></div></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: false,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, blood, league, moon, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'league',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'concave',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>
